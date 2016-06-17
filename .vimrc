@@ -1,4 +1,3 @@
-colorscheme less
 "Researched colorschemes
 "kaltex
 "jhdark
@@ -23,58 +22,66 @@ colorscheme less
 "Tips: to comment out a row of lines CTRL-V now press "i" for insert or
       "c" for change then press the comment character"
 " General {
-		filetype plugin indent on                " Automatically detect file types.
-		syntax on                                " syntax highlighting
-		au BufReadPost *.ep set syntax=html
+  filetype plugin indent on                " Automatically detect file types.
+  syntax on                                " syntax highlighting
+  au BufReadPost *.ep set syntax=html
 
-		" set autowrite                  " automatically write a file when leaving a modified buffer
-		"set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
-		"set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
-		"set virtualedit=onemore             " allow for cursor beyond last character, 
-		"                                   this will prevent the 'x' from deleting
-		"                                   from the end of the line.
-		set formatoptions=croq          " (fo) influences how vim automatically formats text
-		set hidden        "opening a new file when the current buffer has unsaved changes causes files to be hidden instead of closed
-		set history=5000                     " Store a ton of history (default is 20)
-		set shortmess+=I
+  " set autowrite                  " automatically write a file when leaving a modified buffer
+  "set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
+  "set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
+  "set virtualedit=onemore             " allow for cursor beyond last character, 
+  "                                   this will prevent the 'x' from deleting
+  "                                   from the end of the line.
+  set formatoptions=croq          " (fo) influences how vim automatically formats text
+  set hidden        "opening a new file when the current buffer has unsaved changes causes files to be hidden instead of closed
+  set history=5000                     " Store a ton of history (default is 20)
+  set shortmess+=I
+  "set macmeta
 
-		"Can't backspace past start of operation
-		set backspace=indent,eol,start
+  "Can't backspace past start of operation
+  set backspace=indent,eol,start
 
-		" remaps the semi-colon to colon
-		nnoremap ; :            
-		map <silent> ,/ :nohlsearch<CR>
+  " remaps the semi-colon to colon
+  nnoremap ; :            
+  map <silent> ,/ :nohlsearch<CR>
 
-		" New splits appear in unintuitive places
-		 set splitbelow
-		 set splitright
+  " New splits appear in unintuitive places
+   set splitbelow
+   set splitright
 
-		"Ignore nusance keys
-		nnoremap <F1> <nop>
-		nnoremap Q <nop>
-		nnoremap K <nop>
+  "Ignore nusance keys
+  nnoremap <F1> <nop>
+  nnoremap Q <nop>
+  nnoremap K <nop>
 
-		"" enable mouse scrolling -- had to disable because
-		"cut/paste stopped working
-		"set mouse=a       
-		"set clipboard=unnamed
-		 
-		" Setting up the directories {
-		set undofile                       " so is persistent undo ...
-		set copyindent                  " (ci) when auto-indenting, use the indenting format of the previous line
-		set undolevels=1000                " maximum number of changes that can be undone
-		set undoreload=10000               " maximum number lines to save for undo on a buffer reload
-		set backup
-		set backupdir=$HOME/.vimbackup/    " but not when they clog .
-		set directory=$HOME/.vimswap/      " Same for swap files
-		set viewdir=$HOME/.vimviews/       " same for view files
-		set undodir=$HOME/.vimviews/       " same for view files
-		"" Creating directories if they don't exist
-		silent execute '!mkdir -p $HOME/.vimbackup'
-		silent execute '!mkdir -p $HOME/.vimswap'
-		silent execute '!mkdir -p $HOME/.vimviews'
-		"au BufWinLeave * silent! mkview    " make vim save view (state) (folds, cursor, etc)
-		"au BufWinEnter * silent! loadview  " make vim load view (state) (folds, cursor, etc)
+  " Easy window navigation
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+  map <C-x> <C-w>x
+
+  "" enable mouse scrolling -- had to disable because
+  "cut/paste stopped working
+  "set mouse=a       
+  "set clipboard=unnamed
+   
+  " Setting up the directories {
+    set undofile                       " so is persistent undo ...
+    set copyindent                  " (ci) when auto-indenting, use the indenting format of the previous line
+    set undolevels=1000                " maximum number of changes that can be undone
+    set undoreload=10000               " maximum number lines to save for undo on a buffer reload
+    set backup
+    set backupdir=$HOME/.vimbackup/    " but not when they clog .
+    set directory=$HOME/.vimswap/      " Same for swap files
+    set viewdir=$HOME/.vimviews/       " same for view files
+    set undodir=$HOME/.vimviews/       " same for view files
+    "" Creating directories if they don't exist
+    silent execute '!mkdir -p $HOME/.vimbackup'
+    silent execute '!mkdir -p $HOME/.vimswap'
+    silent execute '!mkdir -p $HOME/.vimviews'
+    "au BufWinLeave * silent! mkview    " make vim save view (state) (folds, cursor, etc)
+    "au BufWinEnter * silent! loadview  " make vim load view (state) (folds, cursor, etc)
   " }
 " }
 "
@@ -93,11 +100,11 @@ colorscheme less
   hi CursorColumn cterm=NONE ctermbg=236 ctermfg=NONE guibg=lightblue ctermbg=lightgray 
   hi CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#2d2d2d guifg=NONE
 " only  turn on for current split window
-  augroup CursorLineOnlyInActiveWindow
-		autocmd!
-		autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-		autocmd WinLeave * setlocal nocursorline
-  augroup END
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
 
   if has('cmdline_info')
     set ruler                          " show the ruler
@@ -132,69 +139,69 @@ colorscheme less
 
     " let Vundle manage Vundle
     " required! 
+    "Bundle 'git://github.com/dewrich/vundle.git'
+    "Bundle 'gmarik/vundle'
     Plugin 'gmarik/Vundle.vim'
+    "Bundle 'benmills/vundle'
+    "Bundle 'benmills/Vundle.vim'
 
     " My Bundles here:
     "
     " original repos on github
+    Plugin 'git://github.com/rstacruz/sparkup'
 
-    " Forked
-    Plugin 'git://github.com/dewrich/unite.vim.git'
-    Plugin 'git://github.com/dewrich/neomru.vim'
+    " vim-scripts repos
+    Plugin 'https://github.com/dewrich/unite.vim.git'
+    Plugin 'https://github.com/dewrich/neomru.vim'
     Plugin 'git://github.com/dewrich/L9.git'
     Plugin 'git://github.com/dewrich/ack.vim.git'
     Plugin 'git://github.com/dewrich/indentpython.vim.git'
-    Plugin 'git://github.com/dewrich/nerdtree.git'
-    Plugin 'git://github.com/dewrich/supertab.git'
+    Plugin 'git://github.com/scrooloose/nerdtree.git'
+	Plugin 'git://github.com/scrooloose/nerdcommenter.git'
+	Plugin 'git@github.com:Xuyuanp/nerdtree-git-plugin.git'
+    "Plugin 'git://github.com/dewrich/snipmate.vim.git'
+    "Plugin 'git://github.com/dewrich/supertab.git'
     Plugin 'git://github.com/dewrich/syntastic.git'
     Plugin 'git://github.com/dewrich/tlib_vim.git'
     Plugin 'git://github.com/dewrich/vim-fugitive.git'
+    "Plugin 'git://github.com/dewrich/vimfiles.git'
     Plugin 'git://github.com/dewrich/socketIO-client.git'
-    Plugin 'git://github.com/dewrich/mru.vim.git'
-    Plugin 'git://github.com/dewrich/vim-easygrep.git'
-
-	" Public 
-	Plugin 'git://github.com/scrooloose/nerdcommenter.git'
+    Plugin 'https://github.com/dewrich/mru.vim.git'
     Plugin 'git://github.com/benmills/vimux.git'
     Plugin 'git://github.com/fatih/vim-go.git'
-    Plugin 'git://github.com/Valloric/YouCompleteMe.git'
+    "Plugin 'git://github.com/Valloric/YouCompleteMe.git'
     Plugin 'git://github.com/golang/lint.git'
+    "Plugin 'git://github.com/Lokaltog/powerline.git'
     Plugin 'git://github.com/bling/vim-airline.git'
-    Plugin 'git://github.com/SirVer/ultisnips.git'
-    Plugin 'git://github.com/rstacruz/sparkup'
-    Plugin 'git://github.com/honza/vim-snippets.git'
+    "Plugin 'git://github.com/SirVer/ultisnips.git'
+    Plugin 'git://github.com/dewrich/vim-easygrep.git'
+    "Plugin 'git://github.com/honza/vim-snippets.git'
     Plugin 'git://github.com/rdunklau/vim-perltidy.git'
     Plugin 'git://github.com/tpope/vim-rbenv.git'
     Plugin 'git://github.com/michalliu/sourcebeautify.vim.git'
     Plugin 'git://github.com/vim-scripts/perlprove.vim.git'
+    "Plugin 'git://github.com/Yggdroot/indentLine'
+    "Plugin 'git://github.com/kien/ctrlp.vim.git'
     Plugin 'git://github.com/vim-scripts/ScrollColors.git'
     Plugin 'git://github.com/Rykka/InstantRst.git'
     Plugin 'git://github.com/Rykka/riv.vim.git'
     Plugin 'git://github.com/Rykka/rhythm.css.git'
     Plugin 'git://github.com/airblade/vim-gitgutter.git'
+    "Plugin 'git://github.com/tpope/vim-surround.git'
     Plugin 'git://github.com/tpope/vim-repeat.git'
     Plugin 'git://github.com/bronson/vim-visual-star-search.git'
-	Plugin 'git://github.com/mattn/webapi-vim.git'
-	Plugin 'git://github.com/cirla/vim-giphy.git'
+	Plugin 'mattn/webapi-vim'
+	Plugin 'cirla/vim-giphy'
+	"Plugin 'git://github.com/Raimondi/delimitMate.git'
 	Plugin 'git://github.com/jiangmiao/auto-pairs.git'
 	Plugin 'git://github.com/nelstrom/vim-qargs.git'
+	"Plugin 'git://github.com/davidpthomas/vim4rally.git'
 	Plugin 'git://github.com/vim-ruby/vim-ruby.git'
 	Plugin 'git://github.com/vim-scripts/MultipleSearch.git'
 	Plugin 'git://github.com/OmniSharp/omnisharp-vim.git'
 	Plugin 'git://github.com/christoomey/vim-tmux-navigator.git'
-	" These two go together
-	Plugin 'git://github.com/xolox/vim-misc.git'
-	Plugin 'git://github.com/vim-scripts/lua.vim.git'
-
-	" Archive
-    "Plugin 'git://github.com/dewrich/snipmate.vim.git'
-    "Plugin 'git://github.com/dewrich/vimfiles.git'
-    "Plugin 'git://github.com/Lokaltog/powerline.git'
-    "Plugin 'git://github.com/Yggdroot/indentLine'
-    "Plugin 'git://github.com/kien/ctrlp.vim.git'
-    "Plugin 'git://github.com/tpope/vim-surround.git'
-	"Plugin 'git://github.com/Raimondi/delimitMate.git'
-	"Plugin 'git://github.com/davidpthomas/vim4rally.git'
+	Plugin 'git://github.com/Shougo/neocomplete.vim.git'
+	"Plugin 'git://github.com/farazdagi/vim-go-ide.git'
 	"Plugin 'git://github.com/dgryski/vim-godef.git'
 	"Plugin 'git://github.com/lrvick/Conque-Shell.git'
 
@@ -204,7 +211,6 @@ colorscheme less
 "let g:tmux_navigator_save_on_switch = 1
 let g:tmux_navigator_no_mappings = 1
 
-  " Easy window navigation
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
@@ -218,12 +224,19 @@ let g:snips_author = 'Dewayne Richardson'
 let g:gitgutter_max_signs = 10000
 
 "For Riv (.rst) helper
-let traffic_control = { 'path': '/Users/dricha209/projects/github.com/traffic_control/docs' }
+let traffic_control = { 'path': '/home/dricha209/projects/github.com/traffic_control/docs' }
 let g:riv_projects = [traffic_control]
 let g:riv_fold_level = 0
 let g:riv_fold_auto_update = 0
 let rst_syntax_folding = 0
 set nofoldenable
+
+" For the NERDTree plugin to start on initial blank screen
+"let g:NERDTreeWinPos = "left"
+"let g:NERDTreeWinSize=30
+"let g:NERDTreeChDirMode=2
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let g:netrw_liststyle=3
 
 
 "CTRLP configs
@@ -254,6 +267,18 @@ map - <C-W>-
      :%s/^M/\r/g
  endfunction
 
+"au BufWritePost *.pl,*.pm !perl -c %
+"au BufWritePost *.pl,*.pm !perl -wcIlib %
+
+
+"Go Settings
+"set rtp+=$GOROOT/misc/vim
+" disable the GOPATH Prompt
+"let g:go_disable_autoinstall = 1
+
+"au BufRead,BufNewFile *.json setf json
+"au! BufRead,BufNewFile *.json set filetype=json 
+
 augroup json_autocmd 
   autocmd! 
   autocmd FileType json set autoindent 
@@ -265,9 +290,8 @@ augroup json_autocmd
 augroup END
 
 let mapleader = ","
-
-"" online doc
 "Vim grep reminder mappings
+"" online doc
   "map <Leader>vv  - Grep for the word under the cursor, match all occurences, like |gstar| 
   "map <Leader>vV  - Grep for the word under the cursor, match whole word, like |star| 
   "map <Leader>va  - Like vv, but add to existing list 
@@ -305,7 +329,6 @@ let mapleader = ","
   au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
   au FileType go nmap <Leader>ge <Plug>(go-rename)
   "au FileType go nmap <Leader>gv <Plug>(go-vet)
-"}
 
   let g:go_snippet_engine = "ultsnips"
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -315,8 +338,9 @@ let mapleader = ","
 
   " If you want :UltiSnipsEdit to split your window.
   let g:UltiSnipsEditSplit="vertical"
+"}
 
-"set rtp+=/Users/dricha209/.vim/bundle/powerline/powerline/bindings/vim
+"set rtp+=/home/dricha209/.vim/bundle/powerline/powerline/bindings/vim
 "Powerline Settings {
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
@@ -325,7 +349,7 @@ let mapleader = ","
   """ FOR STATUSLINE
   set encoding=utf-8 " Necessary to show Unicode glyphs
   let g:Powerline_symbols = 'fancy'
-  "set rtp+=/Users/dricha209/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
+  "set rtp+=/home/dricha209/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
   set nocompatible   " Disable vi-compatibility
   set statusline+=%F
   set laststatus=2   " Always show the statusline
@@ -354,11 +378,11 @@ let g:ycm_semantic_triggers =  {
   \ }
 
 "Mojolicious Syntax
-let mojo_highlight_data = 1
-let mojo_disable_html = 1
-let mojo_no_helpers = 1
+    let mojo_highlight_data = 1
+    let mojo_disable_html = 1
+    let mojo_no_helpers = 1
 
-let g:ycm_disable_for_files_larger_than_kb = 10000
+	let g:ycm_disable_for_files_larger_than_kb = 10000
 
 " Keyboard Mappings {
 "   FUNCTION KEYS
@@ -418,10 +442,12 @@ endfunction
     map ,p 1yiwoprint "<Esc>pa #-> (" . $<Esc>pa . ")\n";<Esc>==
     map ,ld 1yiwo$self->app->log->debug("<Esc>pa #-> " . Dumper($<Esc>pa));<Esc>==
     map ,mmd 1yiwo$mojo->app->log->debug("<Esc>pa #-> " . Dumper($<Esc>pa));<Esc>==
-    map ,l 1yiwo$self->app->log->debug("<Esc>pa #-> " . $<Esc>pa);<Esc>==
+    "map ,l 1yiwo$self->app->log->debug("<Esc>pa #-> " . $<Esc>pa);<Esc>==
     map ,mm 1yiwo$mojo->app->log->debug("<Esc>pa #-> " . $<Esc>pa);<Esc>==
     map ,gs 1yiwofmt.Println("<Esc>pa #-> %s", <Esc>pa)<Esc>==
     "map ,gv 1yiwofmt.Println("#-> %+v", <Esc>pa )<Esc>==
+	map ,l  <Esc>:!lua %<CR>
+    map ,lp 1yiwoprint("<Esc>pa #-> " , <Esc>pa<Esc>))==
 	map ,r  <Esc>:!perl %<CR>
 	map ,b  <Esc>:!bash %<CR>
 	map ,ri  <Esc>:popup Riv.Insert<CR>
@@ -449,15 +475,101 @@ endfunction
 	" Search anything 'visually' selected with '//'
 	vnoremap // y/<C-R>"<CR>
 
-	let $PATH = "/Users/dricha209/projects/go/bin:".$PATH
-	let $GOPATH = "/Users/dricha209/projects/go"
-	let g:go_gorename_bin = expand("/Users/dricha209/projects/go/bin/gorename")
-	let g:go_bin_path = expand("/Users/dricha209/projects/go/")
+	let $PATH = "/home/dricha209/projects/go/bin:".$PATH
+	let $GOPATH = "/home/dricha209/projects/go"
+	let g:go_gorename_bin = expand("/home/dricha209/projects/go/bin/gorename")
+	let g:go_bin_path = expand("/home/dricha209/projects/go/")
 	let g:ruby_path = system('echo $HOME/.rbenv/shims')
-
-	let g:lua_complete_omni = 1
 
     "map <C-V> y$o<esc>pI:r!<esc>"add@a
     "map <C-H> :noautocmd vimgrep ;/ & ;/g **/*
 " }
 
+let g:neocomplete#enable_at_startup = 1
+
+"set runtimepath^=~/.vim_go_runtime
+"source ~/.vim_go_runtime/vimrc/basic.vim
+"source ~/.vim_go_runtime/vimrc/filetypes.vim
+"source ~/.vim_go_runtime/vimrc/plugins.vim
+"source ~/.vim_go_runtime/vimrc/extended.vim
+"try
+"source ~/.vim_go_runtime/custom_config.vim
+"catch
+"endtry
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    en
+    return ''
+endfunction
+colorscheme less
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
