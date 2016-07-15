@@ -1,3 +1,73 @@
+" Plug {
+	call plug#begin('~/.vim/plugged')
+
+    " My Bundles here:
+    " original repos on github
+    Plug 'git://github.com/rstacruz/sparkup'
+
+    " vim-scripts repos
+    Plug 'https://github.com/dewrich/unite.vim.git'
+    Plug 'https://github.com/dewrich/neomru.vim'
+    Plug 'git://github.com/dewrich/L9.git'
+    Plug 'git://github.com/dewrich/ack.vim.git'
+    Plug 'git://github.com/dewrich/indentpython.vim.git'
+    Plug 'git://github.com/scrooloose/nerdtree.git'
+	Plug 'git://github.com/scrooloose/nerdcommenter.git'
+	Plug 'git@github.com:Xuyuanp/nerdtree-git-plugin.git'
+    "Plug 'git://github.com/dewrich/supertab.git'
+    Plug 'git://github.com/dewrich/syntastic.git'
+    Plug 'git://github.com/dewrich/tlib_vim.git'
+    Plug 'git://github.com/dewrich/vim-fugitive.git'
+    "Plug 'git://github.com/dewrich/vimfiles.git'
+    Plug 'git://github.com/dewrich/socketIO-client.git'
+    Plug 'https://github.com/dewrich/mru.vim.git'
+    Plug 'git://github.com/benmills/vimux.git'
+    Plug 'git://github.com/fatih/vim-go.git'
+    "Plug 'git://github.com/Valloric/YouCompleteMe.git'
+    Plug 'git://github.com/golang/lint.git'
+    "Plug 'git://github.com/Lokaltog/powerline.git'
+    Plug 'git://github.com/bling/vim-airline.git'
+    Plug 'git://github.com/dewrich/vim-easygrep.git'
+    Plug 'git://github.com/rdunklau/vim-perltidy.git'
+    Plug 'git://github.com/tpope/vim-rbenv.git'
+    Plug 'git://github.com/michalliu/sourcebeautify.vim.git'
+    Plug 'git://github.com/vim-scripts/perlprove.vim.git'
+    "Plug 'git://github.com/Yggdroot/indentLine'
+    "Plug 'git://github.com/kien/ctrlp.vim.git'
+    Plug 'git://github.com/vim-scripts/ScrollColors.git'
+    Plug 'git://github.com/Rykka/InstantRst.git'
+    Plug 'git://github.com/Rykka/riv.vim.git'
+    Plug 'git://github.com/Rykka/rhythm.css.git'
+    Plug 'git://github.com/airblade/vim-gitgutter.git'
+    "Plug 'git://github.com/tpope/vim-surround.git'
+    Plug 'git://github.com/tpope/vim-repeat.git'
+    Plug 'git://github.com/bronson/vim-visual-star-search.git'
+	Plug 'mattn/webapi-vim'
+	Plug 'cirla/vim-giphy'
+	"Plug 'git://github.com/Raimondi/delimitMate.git'
+	"Plug 'git://github.com/jiangmiao/auto-pairs.git'
+	Plug 'git://github.com/nelstrom/vim-qargs.git'
+	"Plug 'git://github.com/davidpthomas/vim4rally.git'
+	Plug 'git://github.com/vim-ruby/vim-ruby.git'
+	Plug 'git://github.com/vim-scripts/MultipleSearch.git'
+	Plug 'git://github.com/OmniSharp/omnisharp-vim.git'
+	Plug 'git://github.com/christoomey/vim-tmux-navigator.git'
+	Plug 'git://github.com/Shougo/neocomplete.vim.git'
+	Plug 'ctrlpvim/ctrlp.vim'
+	"Plug 'git://github.com/farazdagi/vim-go-ide.git'
+	"Plug 'git://github.com/dgryski/vim-godef.git'
+	"Plug 'git://github.com/lrvick/Conque-Shell.git'
+
+	" Add plugins to &runtimepath
+	" Track the engine.
+	Plug 'SirVer/ultisnips.git'
+
+	" Snippets are separated from the engine. Add this if you want them:
+	Plug 'honza/vim-snippets'
+
+	call plug#end()
+" }
+
 "Researched colorschemes
 "kaltex
 "jhdark
@@ -26,7 +96,7 @@
   syntax on                                " syntax highlighting
   au BufReadPost *.ep set syntax=html
 
-  " set autowrite                  " automatically write a file when leaving a modified buffer
+  set autowrite                  " automatically write a file when leaving a modified buffer
   "set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
   "set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
   "set virtualedit=onemore             " allow for cursor beyond last character, 
@@ -132,84 +202,61 @@ augroup END
    "set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 " }
 
-" VUNDLE {
-    set rtp+=~/.vim/bundle/Vundle.vim
-    "set rtp+=~/.vim/bundle/vundle/
-    call vundle#begin()
-
-    " let Vundle manage Vundle
-    " required! 
-    "Bundle 'git://github.com/dewrich/vundle.git'
-    "Bundle 'gmarik/vundle'
-    Plugin 'gmarik/Vundle.vim'
-    "Bundle 'benmills/vundle'
-    "Bundle 'benmills/Vundle.vim'
-
-    " My Bundles here:
-    "
-    " original repos on github
-    Plugin 'git://github.com/rstacruz/sparkup'
-
-    " vim-scripts repos
-    Plugin 'https://github.com/dewrich/unite.vim.git'
-    Plugin 'https://github.com/dewrich/neomru.vim'
-    Plugin 'git://github.com/dewrich/L9.git'
-    Plugin 'git://github.com/dewrich/ack.vim.git'
-    Plugin 'git://github.com/dewrich/indentpython.vim.git'
-    Plugin 'git://github.com/scrooloose/nerdtree.git'
-	Plugin 'git://github.com/scrooloose/nerdcommenter.git'
-	Plugin 'git@github.com:Xuyuanp/nerdtree-git-plugin.git'
-    "Plugin 'git://github.com/dewrich/snipmate.vim.git'
-    "Plugin 'git://github.com/dewrich/supertab.git'
-    Plugin 'git://github.com/dewrich/syntastic.git'
-    Plugin 'git://github.com/dewrich/tlib_vim.git'
-    Plugin 'git://github.com/dewrich/vim-fugitive.git'
-    "Plugin 'git://github.com/dewrich/vimfiles.git'
-    Plugin 'git://github.com/dewrich/socketIO-client.git'
-    Plugin 'https://github.com/dewrich/mru.vim.git'
-    Plugin 'git://github.com/benmills/vimux.git'
-    Plugin 'git://github.com/fatih/vim-go.git'
-    "Plugin 'git://github.com/Valloric/YouCompleteMe.git'
-    Plugin 'git://github.com/golang/lint.git'
-    "Plugin 'git://github.com/Lokaltog/powerline.git'
-    Plugin 'git://github.com/bling/vim-airline.git'
-    "Plugin 'git://github.com/SirVer/ultisnips.git'
-    Plugin 'git://github.com/dewrich/vim-easygrep.git'
-    "Plugin 'git://github.com/honza/vim-snippets.git'
-    Plugin 'git://github.com/rdunklau/vim-perltidy.git'
-    Plugin 'git://github.com/tpope/vim-rbenv.git'
-    Plugin 'git://github.com/michalliu/sourcebeautify.vim.git'
-    Plugin 'git://github.com/vim-scripts/perlprove.vim.git'
-    "Plugin 'git://github.com/Yggdroot/indentLine'
-    "Plugin 'git://github.com/kien/ctrlp.vim.git'
-    Plugin 'git://github.com/vim-scripts/ScrollColors.git'
-    Plugin 'git://github.com/Rykka/InstantRst.git'
-    Plugin 'git://github.com/Rykka/riv.vim.git'
-    Plugin 'git://github.com/Rykka/rhythm.css.git'
-    Plugin 'git://github.com/airblade/vim-gitgutter.git'
-    "Plugin 'git://github.com/tpope/vim-surround.git'
-    Plugin 'git://github.com/tpope/vim-repeat.git'
-    Plugin 'git://github.com/bronson/vim-visual-star-search.git'
-	Plugin 'mattn/webapi-vim'
-	Plugin 'cirla/vim-giphy'
-	"Plugin 'git://github.com/Raimondi/delimitMate.git'
-	Plugin 'git://github.com/jiangmiao/auto-pairs.git'
-	Plugin 'git://github.com/nelstrom/vim-qargs.git'
-	"Plugin 'git://github.com/davidpthomas/vim4rally.git'
-	Plugin 'git://github.com/vim-ruby/vim-ruby.git'
-	Plugin 'git://github.com/vim-scripts/MultipleSearch.git'
-	Plugin 'git://github.com/OmniSharp/omnisharp-vim.git'
-	Plugin 'git://github.com/christoomey/vim-tmux-navigator.git'
-	Plugin 'git://github.com/Shougo/neocomplete.vim.git'
-	"Plugin 'git://github.com/farazdagi/vim-go-ide.git'
-	"Plugin 'git://github.com/dgryski/vim-godef.git'
-	"Plugin 'git://github.com/lrvick/Conque-Shell.git'
-
-    call vundle#end()
-" }
-
 "let g:tmux_navigator_save_on_switch = 1
 let g:tmux_navigator_no_mappings = 1
+
+" ==================== UltiSnips ====================
+let g:go_snippet_engine = "ultsnips"
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:go_snippet_case_type = "camelcase"
+
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
+endfunction
+
+function! g:UltiSnips_Reverse()
+  call UltiSnips#JumpBackwards()
+  if g:ulti_jump_backwards_res == 0
+    return "\<C-P>"
+  endif
+
+  return ""
+endfunction
+
+
+if !exists("g:UltiSnipsJumpForwardTrigger")
+  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+endif
+
+if !exists("g:UltiSnipsJumpBackwardTrigger")
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+endif
+
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
@@ -217,17 +264,22 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
 
-let g:AutoPairsFlyMode = 1
+"let g:AutoPairsFlyMode = 1
 
 " For the snipmate plugin
 let g:snips_author = 'Dewayne Richardson'
 let g:gitgutter_max_signs = 10000
 
 "For Riv (.rst) helper
-let traffic_control = { 'path': '/home/dricha209/projects/github.com/traffic_control/docs' }
+let traffic_control = { 'path': '/Users/dricha209/projects/github.com/traffic_control/docs' }
 let g:riv_projects = [traffic_control]
 let g:riv_fold_level = 0
 let g:riv_fold_auto_update = 0
+
+
+"============ vim-go
+"let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
 let rst_syntax_folding = 0
 set nofoldenable
 
@@ -237,6 +289,7 @@ set nofoldenable
 "let g:NERDTreeChDirMode=2
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:netrw_liststyle=3
+let g:NERDTreeWinSize=25
 
 
 "CTRLP configs
@@ -299,7 +352,7 @@ let mapleader = ","
   "map <Leader>vr  - Perform a global search search on the word under the cursor and prompt for a pattern with which to replace it. 
   "map <Leader>vo  - Select the files to search in and set grep options 
 
-"Vim Go Settings {
+" ==================== vim-go  ==================================
   au BufRead,BufNewFile *.go set filetype=go 
   let g:go_fmt_command = "goimports"
   let g:go_highlight_functions = 1
@@ -328,19 +381,30 @@ let mapleader = ","
   au FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
   au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
   au FileType go nmap <Leader>ge <Plug>(go-rename)
+  map <C-n> :cn<CR>
+  map <C-m> :cp<CR>
+  "You can add some shortcuts to make it easier to jump between errors in
+  "quickfix list:
+  nnoremap <leader>a :cclose<CR>
+  nnoremap <silent> <Leader>gf :GoDecls<cr>
+  nnoremap <silent> <Leader>gfd :GoDeclsDir<cr>
+
+  "" vim-go config
+  "Sometimes when using both vim-go and syntastic Vim will start lagging while
+  "saving and opening files. The following fixes this:
+  let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go']  }
+
+  "Another issue with vim-go and syntastic is that the location list window
+  "that contains the output of commands such as :GoBuild and :GoTest might not
+  "appear. To resolve this:
+  let g:go_list_type = "quickfix"
+
   "au FileType go nmap <Leader>gv <Plug>(go-vet)
 
-  let g:go_snippet_engine = "ultsnips"
-  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<c-b>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-  " If you want :UltiSnipsEdit to split your window.
-  let g:UltiSnipsEditSplit="vertical"
 "}
 
-"set rtp+=/home/dricha209/.vim/bundle/powerline/powerline/bindings/vim
+"set rtp+=/Users/dricha209/.vim/bundle/powerline/powerline/bindings/vim
 "Powerline Settings {
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
@@ -349,7 +413,7 @@ let mapleader = ","
   """ FOR STATUSLINE
   set encoding=utf-8 " Necessary to show Unicode glyphs
   let g:Powerline_symbols = 'fancy'
-  "set rtp+=/home/dricha209/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
+  "set rtp+=/Users/dricha209/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
   set nocompatible   " Disable vi-compatibility
   set statusline+=%F
   set laststatus=2   " Always show the statusline
@@ -405,7 +469,6 @@ endfunction
     map <F6> :vertical silent res -3<CR>
     map <F7> :res +1<CR>
     map <F8> :res -1<CR>
-    "map <F8> :vsp ~/.vim/bundle/snipmate.vim/snippets/python.snippets<CR>
     "map <silent> <F9> call SplitResize()<CR>
     "map <silent> <F9> :NERDTreeToggle .<CR>
 	map <C-n> :NERDTreeToggle<CR>
@@ -455,6 +518,7 @@ endfunction
 	map ,pt  <Esc>:!prove -v %<CR>
 	map ,u  <Esc>:!ctags `find . -name "*.pm"`<CR>
     map ,j :%!python -m json.tool<CR>
+    map ,w :vertical res 30<CR>
 
     " Rails Demo Shortcuts
     "map <C-X> yiworespond_to :html, :xml, :json
@@ -468,6 +532,7 @@ endfunction
     "Unite mappings
     nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
     nnoremap <Leader>f :Unite grep:.<cr>
+	nnoremap <silent> <Leader>d :GoDeclsDir<cr>
 
 	"Yanking lines is inconsistent
 	nnoremap Y y$
@@ -475,10 +540,10 @@ endfunction
 	" Search anything 'visually' selected with '//'
 	vnoremap // y/<C-R>"<CR>
 
-	let $PATH = "/home/dricha209/projects/go/bin:".$PATH
-	let $GOPATH = "/home/dricha209/projects/go"
-	let g:go_gorename_bin = expand("/home/dricha209/projects/go/bin/gorename")
-	let g:go_bin_path = expand("/home/dricha209/projects/go/")
+	let $PATH = "/Users/dricha209/projects/go/bin:".$PATH
+	let $GOPATH = "/Users/dricha209/projects/go"
+	let g:go_gorename_bin = expand("/Users/dricha209/projects/go/bin/gorename")
+	let g:go_bin_path = expand("/Users/dricha209/projects/go/bin")
 	let g:ruby_path = system('echo $HOME/.rbenv/shims')
 
     "map <C-V> y$o<esc>pI:r!<esc>"add@a
@@ -573,3 +638,13 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+"Fatih tips
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+" ==================== Fugitive ====================
+vnoremap <leader>gbl :Gblame<CR>
+nnoremap <leader>gbl :Gblame<CR>
