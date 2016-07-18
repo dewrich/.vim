@@ -284,7 +284,7 @@ set nofoldenable
 "let g:NERDTreeChDirMode=2
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:netrw_liststyle=3
-let g:NERDTreeWinSize=25
+let g:NERDTreeWinSize=20
 
 
 "CTRLP configs
@@ -356,8 +356,6 @@ let mapleader = ","
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
   let g:go_fmt_autosave = 1
-  let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
   au FileType go nmap <Leader>i <Plug>(go-info)
   au FileType go nmap <Leader>gv <Plug>(go-metalinter)
   au FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -376,13 +374,19 @@ let mapleader = ","
   au FileType go nmap <Leader>gdv <Plug>(go-def-vertical)
   au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
   au FileType go nmap <Leader>ge <Plug>(go-rename)
+
+  " vim-go (guru)
+  au FileType go nmap <Leader>gim <Plug>(go-implements)
   map <C-n> :cn<CR>
   map <C-m> :cp<CR>
   "You can add some shortcuts to make it easier to jump between errors in
   "quickfix list:
   nnoremap <leader>a :cclose<CR>
-  nnoremap <silent> <Leader>gf :GoDecls<cr>
-  nnoremap <silent> <Leader>gfd :GoDeclsDir<cr>
+  nnoremap <silent> <Leader>gf :GoDecls<CR>
+  nnoremap <silent> <Leader>gfd :GoDeclsDir<CR>
+  nnoremap <silent> <Leader>n :cn<CR>
+  nnoremap <silent> <Leader>p :cp<CR>
+  nnoremap <silent> <Leader>w :silent vertical resize 35<CR>
 
   "" vim-go config
   "Sometimes when using both vim-go and syntastic Vim will start lagging while
@@ -496,8 +500,8 @@ endfunction
     "map <C-D> yiwodef <Esc>pa <Esc>yiwoend<Esc>2kddo
     ""map <C-T> :FufFile<CR>
     "map <C-E> :vertical silent res -60<CR>
-    map ,pd 1yiwoprint "<Esc>pa #-> (" . Dumper($<Esc>pa) . ")\n";<Esc>==
-    map ,p 1yiwoprint "<Esc>pa #-> (" . $<Esc>pa . ")\n";<Esc>==
+    "map ,pd 1yiwoprint "<Esc>pa #-> (" . Dumper($<Esc>pa) . ")\n";<Esc>==
+    "map ,p 1yiwoprint "<Esc>pa #-> (" . $<Esc>pa . ")\n";<Esc>==
     map ,ld 1yiwo$self->app->log->debug("<Esc>pa #-> " . Dumper($<Esc>pa));<Esc>==
     map ,mmd 1yiwo$mojo->app->log->debug("<Esc>pa #-> " . Dumper($<Esc>pa));<Esc>==
     "map ,l 1yiwo$self->app->log->debug("<Esc>pa #-> " . $<Esc>pa);<Esc>==
