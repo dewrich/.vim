@@ -6,16 +6,16 @@
     Plug 'git://github.com/rstacruz/sparkup'
 
     " vim-scripts repos
-    Plug 'https://github.com/dewrich/unite'
-    Plug 'https://github.com/dewrich/neomru'
+    Plug 'https://github.com/dewrich/unite.vim'
+    Plug 'https://github.com/dewrich/neomru.vim'
+    Plug 'https://github.com/dewrich/ack.vim'
+    Plug 'https://github.com/dewrich/indentpython.vim'
+    Plug 'https://github.com/dewrich/mru.vim'
     Plug 'https://github.com/dewrich/L9'
-    Plug 'https://github.com/dewrich/ack'
-    Plug 'https://github.com/dewrich/indentpython'
     Plug 'https://github.com/dewrich/syntastic'
     Plug 'https://github.com/dewrich/tlib_vim'
     Plug 'https://github.com/dewrich/vim-fugitive'
     Plug 'https://github.com/dewrich/socketIO-client'
-    Plug 'https://github.com/dewrich/mru'
     Plug 'https://github.com/scrooloose/nerdtree'
 	Plug 'https://github.com/scrooloose/nerdcommenter'
 	Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
@@ -56,7 +56,7 @@
 	" Add plugins to &runtimepath
 	" Track the engine.
 	Plug 'https://github.com/SirVer/ultisnips'
-	Plug 'https://github.com/zhaocai/GoldenView'
+	Plug 'https://github.com/zhaocai/GoldenView.Vim'
 
 	" Snippets are separated from the engine. Add this if you want them:
 	Plug 'https://github.com/honza/vim-snippets'
@@ -649,3 +649,17 @@ autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 " ==================== Fugitive ====================
 vnoremap <leader>gbl :Gblame<CR>
 nnoremap <leader>gbl :Gblame<CR>
+
+" ==================== Golden View Split =========================
+" 1. split to tiled windows
+nmap <silent> <C-L>  <Plug>GoldenViewSplit
+
+" 2. quickly switch current window with the main pane
+" and toggle back
+nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
+nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
+
+" 3. jump to next and previous window
+nmap <silent> <C-N>  <Plug>GoldenViewNext
+nmap <silent> <C-P>  <Plug>GoldenViewPrevious
+
