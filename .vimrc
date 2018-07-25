@@ -1,3 +1,5 @@
+" VIM Resources
+" https://hackernoon.com/vim-is-the-perfect-ide-c226d7ed6d88 
 " Plug {
 "
 "let g:loaded_python_provider = 1
@@ -22,6 +24,7 @@ set wildmenu
 " :b lets you autocomplete any open buffer
 
 colorscheme janah
+"colorscheme railscasts
 "colorscheme lizard
 "colorscheme less
 
@@ -32,95 +35,133 @@ colorscheme janah
     Plug 'git://github.com/rstacruz/sparkup'
 
     " vim-scripts repos
-    Plug 'https://github.com/goldfeld/ctrlr.vim'
-    Plug 'https://github.com/dewrich/unite.vim'
-    Plug 'https://github.com/dewrich/neomru.vim'
-    Plug 'https://github.com/dewrich/ack.vim'
-    Plug 'https://github.com/dewrich/indentpython.vim'
-    Plug 'https://github.com/dewrich/mru.vim'
-    Plug 'https://github.com/dewrich/L9'
-    Plug 'https://github.com/dewrich/tlib_vim'
-    Plug 'https://github.com/dewrich/vim-fugitive'
-    Plug 'https://github.com/dewrich/socketIO-client'
-    Plug 'https://github.com/scrooloose/nerdtree'
-	Plug 'https://github.com/scrooloose/nerdcommenter'
-	Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin'
-    Plug 'https://github.com/golang/lint'
-    Plug 'https://github.com/michalliu/sourcebeautify.vim'
-    Plug 'https://github.com/vim-scripts/ScrollColors'
-    Plug 'https://github.com/Rykka/InstantRst'
-    Plug 'https://github.com/Rykka/riv.vim'
-    Plug 'https://github.com/bling/vim-airline'
+    Plug 'goldfeld/ctrlr.vim'
+    Plug 'dewrich/unite.vim'
+    Plug 'dewrich/neomru.vim'
+    Plug 'dewrich/ack.vim'
+    Plug 'dewrich/indentpython.vim'
+    Plug 'dewrich/mru.vim'
+    Plug 'dewrich/L9'
+    Plug 'dewrich/tlib_vim'
+    Plug 'dewrich/vim-fugitive'
+    Plug 'dewrich/socketIO-client'
+    Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'golang/lint'
+    Plug 'michalliu/sourcebeautify.vim'
+    Plug 'vim-scripts/ScrollColors'
+    Plug 'Rykka/InstantRst'
+    Plug 'Rykka/riv.vim'
     Plug 'ekalinin/Dockerfile.vim'
     Plug 'Rykka/rhythm.css'
-	Plug 'airblade/vim-gitgutter'
+    Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-db'
     Plug 'bronson/vim-visual-star-search'
-	Plug 'mattn/webapi-vim'
-	Plug 'cirla/vim-giphy'
-	Plug 'nelstrom/vim-qargs'
-	Plug 'vim-ruby/vim-ruby'
-	Plug 'vim-scripts/MultipleSearch'
-	Plug 'OmniSharp/omnisharp-vim'
-	Plug 'christoomey/vim-tmux-navigator'
-	Plug 'revolvingcow/vim-umbrella'
-	let g:deoplete#enable_at_startup = 1
-	Plug 'cyansprite/deoplete-omnisharp' , {'do': './install.sh'}
+    Plug 'mattn/webapi-vim'
+    Plug 'cirla/vim-giphy'
+    Plug 'nelstrom/vim-qargs'
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'vim-scripts/MultipleSearch'
+    Plug 'OmniSharp/omnisharp-vim'
+    Plug 'christoomey/vim-tmux-navigator'
+    Plug 'revolvingcow/vim-umbrella'
+    let g:deoplete#enable_at_startup = 1
+    Plug 'cyansprite/deoplete-omnisharp' , {'do': './install.sh'}
 
     Plug 'fatih/vim-go'
-	Plug 'hashivim/vim-hashicorp-tools'
-	Plug 'Konfekt/FastFold'
-	Plug 'chase/vim-ansible-yaml'
-	Plug 'vitalk/vim-simple-todo'
-	Plug 'gabrielelana/vim-markdown'
+    Plug 'hashivim/vim-hashicorp-tools'
+    Plug 'Konfekt/FastFold'
+    Plug 'chase/vim-ansible-yaml'
+    Plug 'vitalk/vim-simple-todo'
+    Plug 'gabrielelana/vim-markdown'
 
 	" Add plugins to &runtimepath
 	" Track the engine.
-	Plug 'SirVer/ultisnips'
+    Plug 'SirVer/ultisnips'
 
 	" Snippets are separated from the engine. Add this if you want them:
-	Plug 'honza/vim-snippets'
-	Plug 'sjl/gundo.vim'
-	Plug 'alecthomas/gometalinter'
-	Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-	Plug 'Shougo/vimshell.vim'
-	Plug 'sebdah/vim-delve'
-	Plug 'mklabs/split-term.vim'
-	Plug 'cloudhead/neovim-fuzzy'
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
-	Plug 'yssl/QFEnter'
-	Plug 'martingms/vipsql'
-	Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-	Plug 'w0rp/ale'
-	Plug 'mhinz/vim-startify'
-	Plug 'tpope/vim-sleuth'
-	"Plug 'easymotion/vim-easymotion'
+    Plug 'honza/vim-snippets'
+    Plug 'sjl/gundo.vim'
+    Plug 'alecthomas/gometalinter'
+    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+    Plug 'Shougo/vimshell.vim'
+    Plug 'sebdah/vim-delve'
+    Plug 'mklabs/split-term.vim'
+    Plug 'cloudhead/neovim-fuzzy'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
+    Plug 'yssl/QFEnter'
+    Plug 'martingms/vipsql'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+    Plug 'w0rp/ale'
+    Plug 'mhinz/vim-startify'
+    Plug 'tpope/vim-sleuth'
+    Plug 'kablamo/vim-git-log'
+    Plug 'gabrielelana/vim-markdown'
+    Plug 'JamshedVesuna/vim-markdown-preview'
+    Plug 'tpope/vim-markdown'
+	" Distraction free writing in Vim
+	autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+"To display images with the hotkey mapping (defaults to Control p).
+"let vim_markdown_preview_toggle=1
+"To display images automatically on buffer write.
+let vim_markdown_preview_toggle=2
+"To disregard images and still automatically preview on buffer write.
+"let vim_markdown_preview_toggle=3
+"let vim_markdown_preview_hotkey='<C-m>'
+
+    " UI Themes
+	Plug 'dracula/vim', { 'as': 'dracula' }
+	Plug 'sjl/badwolf', { 'as': 'badwolf' }
+	Plug 'mhinz/vim-janah', { 'as': 'janah' }
+
+    " StatusBars
+    "Plug 'itchyny/lightline.vim'
+	Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
     " Archived
+	"Plug 'junegunn/goyo.vim'
+	"Plug 'Yggdroot/indentLine'
+    "Plug 'gregsexton/gitv', {'on': ['Gitv']}
+    "Plug 'janko-m/vim-test'
+    " for vim-test these Ctrl mappings work well when Caps Lock is mapped to Ctrl
+	" t Ctrl+n
+    "nmap <silent> t<C-n> :TestNearest<CR> 
+	" t Ctrl+f
+    "nmap <silent> t<C-f> :TestFile<CR>    
+	" t Ctrl+s
+    "nmap <silent> t<C-s> :TestSuite<CR>   
+	" t Ctrl+l
+    "nmap <silent> t<C-l> :TestLast<CR>    
+	" t Ctrl+g
+    "nmap <silent> t<C-g> :TestVisit<CR>   
+
+   "Plug 'easymotion/vim-easymotion'
     "Plug 'https://github.com/dewrich/syntastic'
     "Plug 'https://github.com/dewrich/vim-easygrep'
     "Plug 'https://github.com/rdunklau/vim-perltidy'
     "Plug 'https://github.com/vim-scripts/perlprove.vim'
-	"Plug 'benmills/vimux'
-	"Plug 'benmills/vimux-golang'
-	"Plug 'Shougo/neocomplete.vim'
-	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	"Plug 'https://github.com/zhaocai/GoldenView.Vim'
-	"Plug 'https://github.com/ctrlpvim/ctrlp.vim'
-	"Plug 'https://github.com/JamshedVesuna/vim-markdown-preview'
-	"Plug 'jodosha/vim-godebug'
+    "Plug 'benmills/vimux'
+    "Plug 'benmills/vimux-golang'
+    "Plug 'Shougo/neocomplete.vim'
+    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    "Plug 'https://github.com/zhaocai/GoldenView.Vim'
+    "Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+    "Plug 'https://github.com/JamshedVesuna/vim-markdown-preview'
+    "Plug 'jodosha/vim-godebug'
     "Plug 'https://github.com/tpope/vim-rbenv'
-	"Plug 'https://github.com/junegunn/vim-easy-align'
+    "Plug 'https://github.com/junegunn/vim-easy-align'
     "Plug 'https://github.com/Valloric/YouCompleteMe'
     "Plug 'https://github.com/Lokaltog/powerline'
-	"Plug 'https://github.com/Raimondi/delimitMate'
-	"Plug 'https://github.com/jiangmiao/auto-pairs'
-	"Plug 'https://github.com/davidpthomas/vim4rally'
-	"Plug 'https://github.com/farazdagi/vim-go-ide'
-	"Plug 'https://github.com/dgryski/vim-godef'
-	"Plug 'https://github.com/lrvick/Conque-Shell'
+    "Plug 'https://github.com/Raimondi/delimitMate'
+    "Plug 'https://github.com/jiangmiao/auto-pairs'
+    "Plug 'https://github.com/davidpthomas/vim4rally'
+    "Plug 'https://github.com/farazdagi/vim-go-ide'
+    "Plug 'https://github.com/dgryski/vim-godef'
+    "Plug 'https://github.com/lrvick/Conque-Shell'
 
 	call plug#end()
 " }
@@ -187,8 +228,8 @@ let s:giphy_api_key = 'dc6zaTOxFJmzC'
     silent execute '!mkdir -p $HOME/.vimbackup'
     silent execute '!mkdir -p $HOME/.vimswap'
     silent execute '!mkdir -p $HOME/.vimviews'
-    "au BufWinLeave * silent! mkview    " make vim save view (state) (folds, cursor, etc)
-    "au BufWinEnter * silent! loadview  " make vim load view (state) (folds, cursor, etc)
+    au BufWinLeave * silent! mkview    " make vim save view (state) (folds, cursor, etc)
+    au BufWinEnter * silent! loadview  " make vim load view (state) (folds, cursor, etc)
   " }
 " }
 "
@@ -362,6 +403,11 @@ augroup json_autocmd
 augroup END
 
 let mapleader = ","
+" to copy the visual selection to the System clipboard
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
 "Vim grep reminder mappings
 "" online doc
   "map <Leader>vv  - Grep for the word under the cursor, match all occurences, like |gstar| 
@@ -479,6 +525,7 @@ let mapleader = ","
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#left_sep = ' '
   let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline_theme = 'lucius'
   """ FOR STATUSLINE
 
   set encoding=utf-8 " Necessary to show Unicode glyphs
