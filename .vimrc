@@ -23,10 +23,10 @@ set wildmenu
 " Also don't forget 'b' for buffer
 " :b lets you autocomplete any open buffer
 
-colorscheme janah
+"colorscheme janah
 "colorscheme railscasts
 "colorscheme lizard
-"colorscheme less
+colorscheme less
 
 	call plug#begin('~/.vim/plugged')
 
@@ -102,6 +102,21 @@ colorscheme janah
     Plug 'gabrielelana/vim-markdown'
     Plug 'JamshedVesuna/vim-markdown-preview'
     Plug 'tpope/vim-markdown'
+    Plug 'terryma/vim-multiple-cursors'
+
+	let g:multi_cursor_use_default_mapping=0
+
+	" Default mapping
+	let g:multi_cursor_start_word_key      = '<C-n>'
+	let g:multi_cursor_select_all_word_key = '<A-n>'
+	let g:multi_cursor_start_key           = 'g<C-n>'
+	let g:multi_cursor_select_all_key      = 'g<A-n>'
+	let g:multi_cursor_next_key            = '<C-n>'
+	let g:multi_cursor_prev_key            = '<C-p>'
+	let g:multi_cursor_skip_key            = '<C-x>'
+	let g:multi_cursor_quit_key            = '<Esc>'
+	set selection=inclusive
+
 	" Distraction free writing in Vim
 	autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "To display images with the hotkey mapping (defaults to Control p).
@@ -121,6 +136,7 @@ let vim_markdown_preview_toggle=2
     "Plug 'itchyny/lightline.vim'
 	Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'tpope/vim-surround'
 
     " Archived
 	"Plug 'junegunn/goyo.vim'
@@ -241,6 +257,8 @@ let s:giphy_api_key = 'dc6zaTOxFJmzC'
   set shiftwidth=2                     " shift width
   "set expandtab                        " turn ^T to spaces
   set tabpagemax=15                    " only show 15 tabs
+  set timeoutlen=3000
+  set ttimeoutlen=1000
 
   set showmode                         " display the current mode
   set cursorline                       " highlight current line
@@ -635,6 +653,7 @@ endfunction
 	map ,u  <Esc>:!ctags `find . -name "*.pm"`<CR>
     map ,j :%!python -m json.tool<CR>
     map ,w :vertical res 30<CR>
+    map cs ysiw
 
     " Rails Demo Shortcuts
     "map <C-X> yiworespond_to :html, :xml, :json
