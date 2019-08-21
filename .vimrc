@@ -27,6 +27,8 @@ set wildmenu
 "colorscheme railscasts
 "colorscheme lizard
 colorscheme less
+"colorscheme sidewalk-dark
+"colorscheme vim-framer-syntax
 
 	call plug#begin('~/.vim/plugged')
 
@@ -37,10 +39,10 @@ colorscheme less
     " vim-scripts repos
     Plug 'goldfeld/ctrlr.vim'
     Plug 'dewrich/unite.vim'
-    Plug 'dewrich/neomru.vim'
+    "Plug 'dewrich/neomru.vim'
     Plug 'dewrich/ack.vim'
     Plug 'dewrich/indentpython.vim'
-    Plug 'dewrich/mru.vim'
+    "Plug 'dewrich/mru.vim'
     Plug 'dewrich/L9'
     Plug 'dewrich/tlib_vim'
     Plug 'dewrich/vim-fugitive'
@@ -55,7 +57,7 @@ colorscheme less
     Plug 'Rykka/riv.vim'
     Plug 'ekalinin/Dockerfile.vim'
     Plug 'Rykka/rhythm.css'
-    Plug 'airblade/vim-gitgutter'
+    "Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-db'
     Plug 'bronson/vim-visual-star-search'
@@ -83,11 +85,10 @@ colorscheme less
 
 	" Snippets are separated from the engine. Add this if you want them:
     Plug 'honza/vim-snippets'
+
+	" Navigate through vim editor history
     Plug 'sjl/gundo.vim'
     Plug 'alecthomas/gometalinter'
-    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-    Plug 'Shougo/vimshell.vim'
-    Plug 'sebdah/vim-delve'
     Plug 'mklabs/split-term.vim'
     Plug 'cloudhead/neovim-fuzzy'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -139,6 +140,9 @@ let vim_markdown_preview_toggle=2
     Plug 'tpope/vim-surround'
 
     " Archived
+    "Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+    "Plug 'Shougo/vimshell.vim'
+    "Plug 'sebdah/vim-delve'
 	"Plug 'junegunn/goyo.vim'
 	"Plug 'Yggdroot/indentLine'
     "Plug 'gregsexton/gitv', {'on': ['Gitv']}
@@ -369,7 +373,7 @@ let g:snips_author = 'Dewayne Richardson'
 "let g:gitgutter_max_signs = 10000
 
 "For Riv (.rst) helper
-let traffic_control = { 'path': '/Users/dricha209/projects/github.com/traffic_control/docs' }
+let traffic_control = { 'path': '/Users/dewayne.richardson/projects/github.com/traffic_control/docs' }
 let g:riv_projects = [traffic_control]
 let g:riv_fold_level = 0
 let g:riv_fold_auto_update = 0
@@ -479,6 +483,7 @@ noremap <Leader>P "+p
   au FileType go nmap <Leader>gds <Plug>(go-def-vertical)
   au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
   au FileType go nmap <Leader>ge <Plug>(go-rename)
+  au FileType go inoremap <Leader>. <C-x><C-o>
 
   " vim-go (guru)
   au FileType go nmap <Leader>gim <Plug>(go-implements)
@@ -536,7 +541,7 @@ noremap <Leader>P "+p
 
 "}
 
-"set rtp+=/Users/dricha209/.vim/bundle/powerline/powerline/bindings/vim
+"set rtp+=/Users/dewayne.richardson/.vim/bundle/powerline/powerline/bindings/vim
 "Powerline Settings {
   let g:Powerline_symbols = 'fancy'
   let g:airline_powerline_fonts = 1
@@ -547,7 +552,7 @@ noremap <Leader>P "+p
   """ FOR STATUSLINE
 
   set encoding=utf-8 " Necessary to show Unicode glyphs
-  "set rtp+=/Users/dricha209/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
+  "set rtp+=/Users/dewayne.richardson/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
   set nocompatible   " Disable vi-compatibility
   set laststatus=2   " Always show the statusline
   set showtabline=2 " Always display the tabline, even if there is only one tab
@@ -556,7 +561,7 @@ noremap <Leader>P "+p
   " For powerline font in MacVim
   "set guifont=Meslo\ for\ Powerline
   set guioptions+=a " automatically copy visual selection into clipboard
-  set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in the name properly
+  "set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in the name properly
   set tags+=~/tags
 "}
 "
@@ -631,7 +636,7 @@ endfunction
     map <C-Y> yiwoputs("<Esc>pa: " + <Esc>pa.inspect)<Esc>==
     "map <C-I> yiwologger.info("<Esc>pa: " + <Esc>pa)<Esc>
     "map <C-P> yiwobinding.pry<Esc>
-    "map <C-L> yiwo#TODO dricha209 -  <Esc>
+    "map <C-L> yiwo#TODO dewayne.richardson -  <Esc>
     "map <C-D> yiwodef <Esc>pa <Esc>yiwoend<Esc>2kddo
     ""map <C-T> :FufFile<CR>
     "map <C-E> :vertical silent res -60<CR>
@@ -665,7 +670,7 @@ endfunction
     "map <C-O> yiwo<%= f.collection_select("owner_id", @owners, "id", "first_name") %>
 
     "Unite mappings
-    nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<CR>
+    "nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<CR>
     nnoremap <Leader>f :Unite grep:.<CR>
 	nnoremap <silent> <Leader>d :GoDeclsDir<CR>
 
@@ -675,10 +680,10 @@ endfunction
 	" Search anything 'visually' selected with '//'
 	vnoremap // y/<C-R>"<CR>
 
-	let $PATH = "/Users/dricha209/projects/go/bin:".$PATH
-	let $GOPATH = "/Users/dricha209/projects/go"
-	let g:go_gorename_bin = expand("/Users/dricha209/projects/go/bin/gorename")
-	let g:go_bin_path = expand("/Users/dricha209/projects/go/bin")
+	let $PATH = "/Users/dewayne.richardson/projects/go/bin:".$PATH
+	let $GOPATH = "/Users/dewayne.richardson/projects/go"
+	let g:go_gorename_bin = expand("/Users/dewayne.richardson/projects/go/bin/gorename")
+	let g:go_bin_path = expand("/Users/dewayne.richardson/projects/go/bin")
 	let g:ruby_path = system('echo $HOME/.rbenv/shims')
 	let g:dev = "postgres://traffic_ops:twelve@localhost:5432/to_development"
 	let g:test = "postgres://traffic_ops:twelve@localhost:5432/to_test"
@@ -727,6 +732,12 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+"command GOLINT :cexpr system('golangci-lint run')
+" go programming language
+"autocmd BufWritePost *.go !gofmt -w -s %:p
+"autocmd BufWritePost *.go !clear && golangci-lint run --color never --enable-all %:p:h
+
 "autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " ==================== Fugitive ====================
@@ -849,3 +860,4 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
+
