@@ -68,7 +68,6 @@ colorscheme less
     Plug 'ecomba/vim-ruby-refactoring'
     Plug 'tpope/vim-rails'
     Plug 'tpope/vim-rake'
-    Plug 'racer-rust/vimracer'
     Plug 'rust-lang/rust.vim'
     Plug 'thoughtbot/vim-rspec'
     Plug 'Shougo/neocomplete.vim'
@@ -85,7 +84,6 @@ colorscheme less
     Plug 'Konfekt/FastFold'
     Plug 'chase/vim-ansible-yaml'
     Plug 'vitalk/vim-simple-todo'
-    Plug 'gabrielelana/vim-markdown'
 
 	" Add plugins to &runtimepath
 	" Track the engine.
@@ -98,7 +96,6 @@ colorscheme less
     Plug 'sjl/gundo.vim'
     Plug 'alecthomas/gometalinter'
     Plug 'mklabs/split-term.vim'
-    Plug 'cloudhead/neovim-fuzzy'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
     Plug 'yssl/QFEnter'
@@ -108,11 +105,9 @@ colorscheme less
     Plug 'mhinz/vim-startify'
     Plug 'tpope/vim-sleuth'
     Plug 'kablamo/vim-git-log'
-    Plug 'gabrielelana/vim-markdown'
-    Plug 'JamshedVesuna/vim-markdown-preview'
-    Plug 'tpope/vim-markdown'
     Plug 'terryma/vim-multiple-cursors'
 	Plug 'habamax/vim-asciidoctor'
+	Plug 'bronson/vim-crosshairs'
 
 	let g:multi_cursor_use_default_mapping=0
 
@@ -126,16 +121,6 @@ colorscheme less
 	let g:multi_cursor_skip_key            = '<C-x>'
 	let g:multi_cursor_quit_key            = '<Esc>'
 	set selection=inclusive
-
-	" Distraction free writing in Vim
-	autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-"To display images with the hotkey mapping (defaults to Control p).
-"let vim_markdown_preview_toggle=1
-"To display images automatically on buffer write.
-let vim_markdown_preview_toggle=2
-"To disregard images and still automatically preview on buffer write.
-"let vim_markdown_preview_toggle=3
-"let vim_markdown_preview_hotkey='<C-m>'
 
     " UI Themes
 	Plug 'dracula/vim', { 'as': 'dracula' }
@@ -178,7 +163,6 @@ let vim_markdown_preview_toggle=2
     "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     "Plug 'https://github.com/zhaocai/GoldenView.Vim'
     "Plug 'https://github.com/ctrlpvim/ctrlp.vim'
-    "Plug 'https://github.com/JamshedVesuna/vim-markdown-preview'
     "Plug 'jodosha/vim-godebug'
     "Plug 'https://github.com/tpope/vim-rbenv'
     "Plug 'https://github.com/junegunn/vim-easy-align'
@@ -207,6 +191,7 @@ let s:giphy_api_key = 'dc6zaTOxFJmzC'
   filetype plugin indent on                " Automatically detect file types.
   syntax on                                " syntax highlighting
   au BufReadPost *.ep set syntax=html
+  au BufRead /tmp/psql.edit.* set syntax=sql
 
   set autowrite                  " automatically write a file when leaving a modified buffer
   "set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
@@ -276,8 +261,10 @@ let s:giphy_api_key = 'dc6zaTOxFJmzC'
   set cursorline                       " highlight current line
   hi cursorline guibg=#333333          " highlight bg color of current line
   "set cursorcolumn                       " highlight current column
-  hi CursorColumn cterm=NONE ctermbg=236 ctermfg=NONE guibg=lightblue ctermbg=lightgray 
-  hi CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#2d2d2d guifg=NONE
+  "hi CursorColumn cterm=NONE ctermbg=236 ctermfg=NONE guibg=lightblue ctermbg=lightgray 
+  "hi CursorLine   cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#2d2d2d guifg=NONE
+  "hi CursorLine   cterm=NONE ctermbg=black ctermfg=NONE guibg=black guifg=NONE
+  "hi CursorColumn cterm=NONE ctermbg=black ctermfg=NONE guibg=black guifg=NONE
 " only  turn on for current split window
 augroup CursorLineOnlyInActiveWindow
   autocmd!
@@ -519,7 +506,6 @@ let g:acp_enableAtStartup = 0
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -537,8 +523,6 @@ autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 " go programming language
 "autocmd BufWritePost *.go !gofmt -w -s %:p
 "autocmd BufWritePost *.go !clear && golangci-lint run --color never --enable-all %:p:h
-
-"autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " ==================== Fugitive ====================
 " ==================== Golden View Split =========================
@@ -614,5 +598,69 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 
+set rtp+=/usr/local/bin/fzf
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" An action can be a reference to a function that processes selected lines
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" You can set up fzf window using a Vim command (Neovim or latest Vim 8 required)
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10new' }
+
+" Customize fzf colors to match your color scheme
+" - fzf#wrap translates this to a set of `--color` options
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history
+" - History files will be stored in the specified directory
+" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
+"   'previous-history' instead of 'down' and 'up'.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 source ~/.vim/mapping.vim
+
+" adjust cursor for insert mode
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+:autocmd InsertEnter * set cul
+:autocmd InsertLeave * set nocul
+

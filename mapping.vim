@@ -160,7 +160,8 @@ map ,mm 1yiwo$mojo->app->log->debug("<Esc>pa #-> " . $<Esc>pa);<Esc>==
 map ,gs 1yiwofmt.Println("<Esc>pa #-> %s", <Esc>pa)<Esc>==
 "map ,gv 1yiwofmt.Println("#-> %+v", <Esc>pa )<Esc>==
 map ,l  <Esc>:!lua %<CR>
-map ,lp 1yiwoprint("<Esc>pa #-> " , <Esc>pa<Esc>))==
+"map ,lp 1yiwoprint("<Esc>pa #-> " , <Esc>pa<Esc>))==
+map ,lp yiwoprint("<Esc>pa: " , <Esc>pa)<Esc>==
 map ,r  <Esc>:!perl %<CR>
 map ,b  <Esc>:!bash %<CR>
 map ,ri  <Esc>:popup Riv.Insert<CR>
