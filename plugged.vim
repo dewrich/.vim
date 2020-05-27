@@ -1,7 +1,4 @@
 
-command! MarkdownPreview call local#mdpreview#start()
-command! MarkdownStopPreview call local#mdpreview#stop()
-
 call plug#begin('~/.vim/plugged')
 
     " My Bundles here:
@@ -9,7 +6,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'git://github.com/rstacruz/sparkup'
 
     " vim-scripts repos
-    Plug 'goldfeld/ctrlr.vim'
+    "Plug 'goldfeld/ctrlr.vim'
     Plug 'dewrich/unite.vim'
     "Plug 'dewrich/neomru.vim'
     Plug 'dewrich/ack.vim'
@@ -50,6 +47,8 @@ call plug#begin('~/.vim/plugged')
     let g:deoplete#enable_at_startup = 1
     Plug 'cyansprite/deoplete-omnisharp' , {'do': './install.sh'}
 
+    
+
     Plug 'fatih/vim-go'
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
     Plug 'hashivim/vim-hashicorp-tools'
@@ -59,10 +58,10 @@ call plug#begin('~/.vim/plugged')
 
 	" Add plugins to &runtimepath
 	" Track the engine.
-    Plug 'SirVer/ultisnips'
+    "Plug 'SirVer/ultisnips'
 
 	" Snippets are separated from the engine. Add this if you want them:
-    Plug 'honza/vim-snippets'
+    "Plug 'honza/vim-snippets'
 
 	" Navigate through vim editor history
     Plug 'sjl/gundo.vim'

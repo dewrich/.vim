@@ -1,3 +1,4 @@
+let mapleader = ","
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -18,6 +19,7 @@ noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p
+
 "Vim grep reminder mappings
 "" online doc
 "map <Leader>vv  - Grep for the word under the cursor, match all occurences, like |gstar| 
@@ -163,16 +165,6 @@ vnoremap // y/<C-R>"<CR>
 vnoremap <leader>gbl :Gblame<CR>
 nnoremap <leader>gbl :Gblame<CR>
 
-
-"map <C-V> y$o<esc>pI:r!<esc>"add@a
-"map <C-H> :noautocmd vimgrep ;/ & ;/g **/*
-" =================== vipsql =====================
-" Starts an async psql job, prompting for the psql arguments.
-" Also opens a scratch buffer where output from psql is directed.
-noremap <leader>po :VipsqlOpenSession<CR>
-noremap <leader>pd :VipsqlOpenSession -U traffic_ops -h localhost to_development && :set nowrap<CR>
-noremap <leader>pt :VipsqlOpenSession -U traffic_ops -h localhost to_test && :set nowrap<CR>
-
 " Terminates psql (happens automatically if the scratch buffer is closed).
 noremap <silent> <leader>pk :VipsqlCloseSession<CR>
 
@@ -212,14 +204,14 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
 "nnoremap <silent> <C-p> :TmuxNavigatePrevious<CR>
 
-  " Easy window navigation
-  "map <C-h> <C-w>h
-  "map <C-j> <C-w>j
-  "map <C-k> <C-w>k
-  "map <C-l> <C-w>l
-  "map <C-x> <C-w>x
-  map <Leader>ra :wa<CR> :GolangTestCurrentPackage<CR>
-  map <Leader>rf :wa<CR> :GolangTestFocused<CR>
+" Easy window navigation
+"map <C-h> <C-w>h
+"map <C-j> <C-w>j
+"map <C-k> <C-w>k
+"map <C-l> <C-w>l
+"map <C-x> <C-w>x
+map <Leader>ra :wa<CR> :GolangTestCurrentPackage<CR>
+map <Leader>rf :wa<CR> :GolangTestFocused<CR>
 
 
 "Ignore nusance keys

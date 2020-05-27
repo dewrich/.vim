@@ -126,9 +126,8 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 
 
-" =================== Tmux =====================
-  "set statusline+=%F
-set statusline+=%m
+set statusline+=%F
+"set statusline+=%m
 set rtp+=/usr/local/bin/fzf
 
 source ~/.vim/plugged.vim
