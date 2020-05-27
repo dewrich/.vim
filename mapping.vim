@@ -1,4 +1,3 @@
-let mapleader = ","
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -27,32 +26,6 @@ noremap <Leader>P "+p
 "map <Leader>vA  - Like vV, but add to existing list 
 "map <Leader>vr  - Perform a global search search on the word under the cursor and prompt for a pattern with which to replace it. 
 "map <Leader>vo  - Select the files to search in and set grep options 
-
-" ==================== NerdTree  ==================================
-" For the NERDTree plugin to start on initial blank screen
-"let g:NERDTreeWinPos = "left"
-"let g:NERDTreeWinSize=30
-"let g:NERDTreeChDirMode=2
-"let g:NERDTreeMapOpenVSplit=50
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"let g:netrw_liststyle=3
-"let g:NERDTreeWinSize=10
-
-" ==================== vim-go  ==================================
-"============ vim-go
-"let g:go_auto_type_info = 1
-"let g:go_auto_sameids = 1
-"let rst_syntax_folding = 0
-"set nofoldenable
-
-au BufRead,BufNewFile *.go set filetype=go 
-let g:go_fmt_command = "goimports"
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_autosave = 1
 
 nmap <silent> <C-P>  <Plug>GoldenViewPrevious
 au FileType go nmap <Leader>i <Plug>(go-info)
@@ -110,8 +83,6 @@ vmap <S-Tab> <gv
 " source $MYVIMRC reloads the saved $MYVIMRC
 map <Leader>v :source $MYVIMRC \| :nohls
 "map <F1> :vertical ball<CR>
-"set pastetoggle=F2
-"map <F2> :set nocursorline nocursorcolumn<CR>
 map <F2> :GundoToggle<CR>
 map <F3> :QuickRun<CR>
 map <F4> :silent 1,$!~/.vim/rubybeautifier.rb<CR>
@@ -124,8 +95,6 @@ map <F8> :res -1<CR>
 "map <silent> <F9> :NERDTreeToggle %:p:h<CR>
 "map <Leader>sp :set paste <CR>
 "map <F10> :set paste<CR>
-map <F12> :set number!<CR>
-
 "   COMBO KEYS
 " RUBY Generates a puts "var #-> #{var}"
 "map <C-D> yiwoputs "<Esc>pa #-> #{<Esc>pa.inspect}"<Esc>
@@ -225,4 +194,35 @@ noremap <leader>pb :VipsqlSendBuffer<CR>
 " Sends `SIGINT` (C-c) to the psql process.
 noremap <leader>pc :VipsqlSendInterrupt<CR>
 
-"echo "mapping.vim"
+" In normal-mode, prompts for input to psql directly.
+nnoremap <leader>md :MarkdownPreview<CR>
+
+autocmd FileType puml nnoremap <buffer> <leader>b :!java -jar ~/bin/java/bin/plantuml.jar -o %:p:h %<cr>
+
+let g:exchange_no_mappings=1
+nmap cx <Plug>(Exchange)
+vmap X <Plug>(Exchange)
+nmap cxc <Plug>(ExchangeClear)
+nmap cxx <Plug>(ExchangeLine)
+
+" =================== Tmux =====================
+nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
+nnoremap <silent> <C-j> :TmuxNavigateDown<CR>
+nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
+nnoremap <silent> <C-l> :TmuxNavigateRight<CR>
+"nnoremap <silent> <C-p> :TmuxNavigatePrevious<CR>
+
+  " Easy window navigation
+  "map <C-h> <C-w>h
+  "map <C-j> <C-w>j
+  "map <C-k> <C-w>k
+  "map <C-l> <C-w>l
+  "map <C-x> <C-w>x
+  map <Leader>ra :wa<CR> :GolangTestCurrentPackage<CR>
+  map <Leader>rf :wa<CR> :GolangTestFocused<CR>
+
+
+"Ignore nusance keys
+nnoremap <F1> <nop>
+nnoremap Q <nop>
+nnoremap K <nop>
