@@ -218,3 +218,11 @@ map <Leader>rf :wa<CR> :GolangTestFocused<CR>
 nnoremap <F1> <nop>
 nnoremap Q <nop>
 nnoremap K <nop>
+
+" vim-exchange
+" https://github.com/tommcdo/vim-exchange
+let g:exchange_no_mappings=1
+nmap cx <Plug>(Exchange)
+vmap X <Plug>(Exchange)
+nmap cxc <Plug>(ExchangeClear)
+nmap cxx <Plug>(ExchangeLine)
