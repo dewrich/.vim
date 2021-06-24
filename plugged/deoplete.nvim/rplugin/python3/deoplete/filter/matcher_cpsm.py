@@ -4,7 +4,7 @@
 # License: MIT license
 # ============================================================================
 
-import os
+from pathlib import Path
 import sys
 import typing
 
@@ -26,7 +26,7 @@ class Filter(Base):
     def filter(self, context: UserContext) -> Candidates:
         if (not context['candidates'] or not context['input']
                 or self._cpsm is False):
-            return context['candidates']  # type: ignore
+            return list(context['candidates'])
 
         if self._cpsm is None:
             errmsg = self._init_cpsm(context)
@@ -49,7 +49,7 @@ class Filter(Base):
         found = globruntime(self.vim.options['runtimepath'], fname)
         errmsg = ''
         if found:
-            sys.path.insert(0, os.path.dirname(found[0]))
+            sys.path.insert(0, str(Path(found[0]).parent))
             try:
                 import cpsm_py
             except ImportError as exc:

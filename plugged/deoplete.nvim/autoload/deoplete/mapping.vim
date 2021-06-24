@@ -10,6 +10,12 @@ function! deoplete#mapping#_init() abort
         \ deoplete#mapping#_dummy('deoplete#mapping#_complete')
   inoremap <expr><silent> <Plug>+
         \ deoplete#mapping#_dummy('deoplete#mapping#_prev_complete')
+
+  " Note: The dummy mappings may be inserted on other modes.
+  cnoremap <silent> <Plug>_  <Nop>
+  cnoremap <silent> <Plug>+  <Nop>
+  noremap  <silent> <Plug>_  <Nop>
+  noremap  <silent> <Plug>+  <Nop>
 endfunction
 function! deoplete#mapping#_dummy(func) abort
   return "\<C-r>=".a:func."()\<CR>"
@@ -42,7 +48,16 @@ function! deoplete#mapping#_complete() abort
   if !has_key(g:deoplete#_context, 'candidates')
         \ || s:check_completion_info(g:deoplete#_context.candidates)
         \ || !&modifiable
+    let g:deoplete#_context.candidates = []
     return ''
+  endif
+
+  let auto_popup = deoplete#custom#_get_option(
+        \ 'auto_complete_popup') !=# 'manual'
+
+  if auto_popup
+    " Note: completeopt must be changed before complete()
+    call deoplete#mapping#_set_completeopt(g:deoplete#_context.is_async)
   endif
 
   " echomsg string(g:deoplete#_context)
@@ -62,20 +77,24 @@ function! deoplete#mapping#_prev_complete() abort
     return ''
   endif
 
+  call deoplete#mapping#_set_completeopt(v:false)
+
   call complete(g:deoplete#_filtered_prev.complete_position + 1,
         \ g:deoplete#_filtered_prev.candidates)
 
   return ''
 endfunction
-function! deoplete#mapping#_set_completeopt() abort
-  if exists('g:deoplete#_saved_completeopt')
-    return
+function! deoplete#mapping#_set_completeopt(is_async) abort
+  if !exists('g:deoplete#_saved_completeopt')
+    let g:deoplete#_saved_completeopt = &completeopt
   endif
-  let g:deoplete#_saved_completeopt = &completeopt
   set completeopt-=longest
   set completeopt+=menuone
   set completeopt-=menu
-  if &completeopt !~# 'noinsert\|noselect'
+  if &completeopt !~# 'noinsert\|noselect' || a:is_async
+    " Note: If is_async, noselect is needed to prevent without confirmation
+    " problem
+    set completeopt-=noinsert
     set completeopt+=noselect
   endif
 endfunction

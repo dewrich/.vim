@@ -12,7 +12,8 @@ set path+=**
 " Display all matching files when we tab complete
 set wildmenu
 
-colorscheme less
+colorscheme vilight
+"colorscheme less
 
 filetype plugin indent on                " Automatically detect file types.
 syntax on                                " syntax highlighting
@@ -26,6 +27,7 @@ set formatoptions=croq          " (fo) influences how vim automatically formats 
 set hidden        "opening a new file when the current buffer has unsaved changes causes files to be hidden instead of closed
 set history=5000                     " Store a ton of history (default is 20)
 set shortmess+=I
+set selection=inclusive
 "set macmeta
 
 "Can't backspace past start of operation
@@ -57,7 +59,6 @@ silent execute '!mkdir -p $HOME/.vimswap'
 silent execute '!mkdir -p $HOME/.vimviews'
 
 " Vim UI
-" Favorite color schemes
 "set showbreak=->                    " a marker to highlight wrapped lines
 set tabstop=4                        " tabstops
 set shiftwidth=2                     " shift width
@@ -76,11 +77,11 @@ hi cursorline guibg=#333333          " highlight bg color of current line
 "hi CursorColumn cterm=NONE ctermbg=black ctermfg=NONE guibg=black guifg=NONE
 
 " only  turn on for current split window
-augroup CursorLineOnlyInActiveWindow
-  autocmd!
-  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
-augroup END
+"augroup CursorLineOnlyInActiveWindow
+"  autocmd!
+"  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+"  autocmd WinLeave * setlocal nocursorline
+"augroup END
 
 autocmd InsertLeave,WinEnter * set cursorline
 autocmd InsertEnter,WinLeave * set nocursorline
@@ -126,7 +127,7 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 
 
-set statusline+=%F
+"set statusline+=%F
 "set statusline+=%m
 set rtp+=/usr/local/bin/fzf
 

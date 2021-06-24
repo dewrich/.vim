@@ -55,14 +55,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'Konfekt/FastFold'
     Plug 'chase/vim-ansible-yaml'
     Plug 'vitalk/vim-simple-todo'
-
-	" Add plugins to &runtimepath
-	" Track the engine.
-    "Plug 'SirVer/ultisnips'
-
-	" Snippets are separated from the engine. Add this if you want them:
-    "Plug 'honza/vim-snippets'
-
 	" Navigate through vim editor history
     Plug 'sjl/gundo.vim'
     Plug 'alecthomas/gometalinter'
@@ -88,16 +80,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
 
 
-    let g:multi_cursor_use_default_mapping=0
+    " Add plugins to &runtimepath
+    " Track the engine.
+    "Plug 'SirVer/ultisnips'
 
-    " Default mapping
-    let g:multi_cursor_start_word_key      = '<C-n>'
-    let g:multi_cursor_select_all_word_key = '<A-n>'
-    let g:multi_cursor_start_key           = 'g<C-n>'
-    let g:multi_cursor_select_all_key      = 'g<A-n>'
-    let g:multi_cursor_next_key            = '<C-n>'
-    let g:multi_cursor_prev_key            = '<C-p>'
-    let g:multi_cursor_skip_key            = '<C-x>'
-    let g:multi_cursor_quit_key            = '<Esc>'
-    set selection=inclusive
+    " Snippets are separated from the engine. Add this if you want them:
+    "Plug 'honza/vim-snippets'
+    "Plug 'tpope/vim-rubocop'
+
 call plug#end()

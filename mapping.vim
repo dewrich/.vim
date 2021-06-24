@@ -29,7 +29,7 @@ noremap <Leader>P "+p
 "map <Leader>vr  - Perform a global search search on the word under the cursor and prompt for a pattern with which to replace it. 
 "map <Leader>vo  - Select the files to search in and set grep options 
 
-nmap <silent> <C-P>  <Plug>GoldenViewPrevious
+au FileType go inoremap <Leader>. <C-x><C-o>
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>gv <Plug>(go-metalinter)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -48,7 +48,6 @@ au FileType go nmap <Leader>gdv <Plug>(go-def-split)
 au FileType go nmap <Leader>gds <Plug>(go-def-vertical)
 au FileType go nmap <Leader>gdt <Plug>(go-def-tab)
 au FileType go nmap <Leader>ge <Plug>(go-rename)
-au FileType go inoremap <Leader>. <C-x><C-o>
 
 " vim-go (guru)
 au FileType go nmap <Leader>gim <Plug>(go-implements)
@@ -101,21 +100,21 @@ map <F8> :res -1<CR>
 " RUBY Generates a puts "var #-> #{var}"
 "map <C-D> yiwoputs "<Esc>pa #-> #{<Esc>pa.inspect}"<Esc>
 map <C-C> :s/^/#/g \| :nohlsearch<CR>
-map <C-D> yiwolog.Debugln("%v-->",<Esc>pa)<Esc>
+"map <C-D> yiwolog.Debugln("%v-->",<Esc>pa)<Esc>
+map <C-D> yiwoputs <Esc>pa #-> #{<Esc>pa.inspect}"<Esc>
+"map <C-D> yiwoputs("<Esc>pa: " + <Esc>pa)<Esc>==
 map <C-E> yiwofmt.Printf("<Esc>pa ---> %v\n", <esc>pa)<Esc>
 "map <C-P> :cnext<CR>
 "imap <C-O> <C-K>OK 
 "map <C-P> ihello<CR>
 "map <C-O><press Ctrl-K>OK<CR>
 "map <C-D> yiwologger.debug("<Esc>pa: " + <Esc>pa)<Esc>
-"map <C-D> yiwoputs <Esc>pa #-> #{<Esc>pa.inspect}"<Esc>
 "map <C-E> yiwo <Esc>:pa<CR>
-"map <C-D> yiwoputs("<Esc>pa: " + <Esc>pa)<Esc>==
 map <C-I> :w! \| :!go run %<CR>
 map <C-O> :w! \| :!go test -v %<CR>
 "Python print
 "map <C-I> yiwoprint "<Esc>pa: %s" % <Esc>pa<Esc>
-map <C-Y> yiwoputs("<Esc>pa: " + <Esc>pa.inspect)<Esc>==
+"map <C-Y> yiwoputs("<Esc>pa: " + <Esc>pa.inspect)<Esc>==
 "map <C-I> yiwologger.info("<Esc>pa: " + <Esc>pa)<Esc>
 "map <C-P> yiwobinding.pry<Esc>
 "map <C-L> yiwo#TODO dewayne.richardson -  <Esc>
@@ -128,7 +127,7 @@ map ,ld 1yiwo$self->app->log->debug("<Esc>pa #-> " . Dumper($<Esc>pa));<Esc>==
 map ,mmd 1yiwo$mojo->app->log->debug("<Esc>pa #-> " . Dumper($<Esc>pa));<Esc>==
 "map ,l 1yiwo$self->app->log->debug("<Esc>pa #-> " . $<Esc>pa);<Esc>==
 map ,mm 1yiwo$mojo->app->log->debug("<Esc>pa #-> " . $<Esc>pa);<Esc>==
-map ,gs 1yiwofmt.Println("<Esc>pa #-> %s", <Esc>pa)<Esc>==
+"map ,gs 1yiwofmt.Println("<Esc>pa #-> %s", <Esc>pa)<Esc>==
 "map ,gv 1yiwofmt.Println("#-> %+v", <Esc>pa )<Esc>==
 map ,l  <Esc>:!lua %<CR>
 "map ,lp 1yiwoprint("<Esc>pa #-> " , <Esc>pa<Esc>))==
@@ -221,8 +220,8 @@ nnoremap K <nop>
 
 " vim-exchange
 " https://github.com/tommcdo/vim-exchange
-let g:exchange_no_mappings=1
-nmap cx <Plug>(Exchange)
-vmap X <Plug>(Exchange)
-nmap cxc <Plug>(ExchangeClear)
-nmap cxx <Plug>(ExchangeLine)
+"let g:exchange_no_mappings=1
+"nmap cx <Plug>(Exchange)
+"vmap X <Plug>(Exchange)
+"nmap cxc <Plug>(ExchangeClear)
+"nmap cxx <Plug>(ExchangeLine)

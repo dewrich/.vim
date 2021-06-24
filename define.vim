@@ -18,9 +18,9 @@ let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-n>'
-let g:multi_cursor_select_all_word_key = '<A-n>'
+let g:multi_cursor_select_all_word_key = '<C-k>'
 let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_select_all_key      = 'g<C-k>'
 let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
@@ -74,6 +74,7 @@ endfunction
 
 "au BufWritePost *.pl,*.pm !perl -c %
 "au BufWritePost *.pl,*.pm !perl -wcIlib %
+au BufWritePre,FileWritePre *.go :GoFmt
 
 
 "Go Settings
@@ -96,26 +97,26 @@ augroup END
 
 "set rtp+=/Users/dewayne.richardson/.vim/bundle/powerline/powerline/bindings/vim
 "Powerline Settings {
-  let g:Powerline_symbols = 'fancy'
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline_theme = 'lucius'
+"  let g:Powerline_symbols = 'fancy'
+"  let g:airline_powerline_fonts = 1
+"  let g:airline#extensions#tabline#enabled = 1
+"  let g:airline#extensions#tabline#left_sep = ' '
+"  let g:airline#extensions#tabline#left_alt_sep = '|'
+"  let g:airline_theme = 'lucius'
   """ FOR STATUSLINE
 
-  set encoding=utf-8 " Necessary to show Unicode glyphs
+"  set encoding=utf-8 " Necessary to show Unicode glyphs
   "set rtp+=/Users/dewayne.richardson/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
-  set nocompatible   " Disable vi-compatibility
-  set laststatus=2   " Always show the statusline
-  set showtabline=2 " Always display the tabline, even if there is only one tab
-  set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-  set t_Co=256
+"  set nocompatible   " Disable vi-compatibility
+"  set laststatus=2   " Always show the statusline
+"  set showtabline=2 " Always display the tabline, even if there is only one tab
+"  set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+"  set t_Co=256
   " For powerline font in MacVim
   "set guifont=Meslo\ for\ Powerline
-  set guioptions+=a " automatically copy visual selection into clipboard
+"  set guioptions+=a " automatically copy visual selection into clipboard
   "set guifont=Source\ Code\ Pro\ for\ Powerline "make sure to escape the spaces in the name properly
-  set tags+=~/tags
+"  set tags+=~/tags
 "}
  
 "YCM Settings
@@ -254,6 +255,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_autosave = 1
+let g:go_fmt_options = "-local=github.com/ValiMail"
 
 let g:exchange_no_mappings=1
 
